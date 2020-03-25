@@ -38,6 +38,12 @@ while True:
     if type_input == 'status':
         show_data(data_loker)
 
+    if type_input == 'leave':
+        jumlah_loker -= 1
+        index = int(command[1]) - 1
+        data_loker.remove(data_loker[index])
+        print(f"Loker nomor {index + 1} berhasil dikosongkan.")
+
     if type_input == 'exit':
         break
 
