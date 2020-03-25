@@ -6,6 +6,14 @@ data_loker = []
 def isKuotaFull(jumlah_loker, MAX_LOKER):
     return jumlah_loker == MAX_LOKER
 
+def show_data(data_loker):
+    header = "No Loker      Tipe Identitas        Nomor Identitas"
+    print(header)
+    for data in data_loker:
+        nomor, tipe_id, nomor_id = data
+        row = f"{nomor}             {tipe_id}                   {nomor_id}"
+        print(row)
+
 while True:
     command = input().split()
     type_input = command[0]
@@ -26,6 +34,9 @@ while True:
             print(f"Kartu identitas tersimpan di loker nomor {no_loker}")
         else:
             print("Maaf loker sudah penuh.")
+
+    if type_input == 'status':
+        show_data(data_loker)
 
     if type_input == 'exit':
         break
