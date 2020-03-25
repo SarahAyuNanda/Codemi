@@ -20,6 +20,9 @@ def find_loker(data_loker, nomor):
             return int(data[0])
     return -1
 
+def search_kartu(data_loker, tipe):
+    return ', '.join([str(data[2]) for data in data_loker if data[1] == tipe])
+
 while True:
     command = input().split()
     type_input = command[0]
@@ -56,6 +59,10 @@ while True:
             print(f"Kartu identitas tersimpan di loker nomor {lokasi_loker}")
         else:
             print(f"Kartu identitas tidak ditemukan")
+
+    if type_input == 'search':
+        hasil_pencarian = search_kartu(data_loker, command[1])
+        print(hasil_pencarian)
 
     if type_input == 'exit':
         break
