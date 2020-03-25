@@ -14,6 +14,12 @@ def show_data(data_loker):
         row = f"{nomor}             {tipe_id}                   {nomor_id}"
         print(row)
 
+def find_loker(data_loker, nomor):
+    for data in data_loker:
+        if nomor == int(data[2]):
+            return int(data[0])
+    return -1
+
 while True:
     command = input().split()
     type_input = command[0]
@@ -43,6 +49,13 @@ while True:
         index = int(command[1]) - 1
         data_loker.remove(data_loker[index])
         print(f"Loker nomor {index + 1} berhasil dikosongkan.")
+
+    if type_input == 'find':
+        lokasi_loker = find_loker(data_loker, int(command[1]))
+        if lokasi_loker > 0:
+            print(f"Kartu identitas tersimpan di loker nomor {lokasi_loker}")
+        else:
+            print(f"Kartu identitas tidak ditemukan")
 
     if type_input == 'exit':
         break
