@@ -1,4 +1,5 @@
 MAX_LOKER = 0
+ALL_COMMANDS = ['init', 'input', 'status', 'leave', 'find', 'search', 'exit']
 jumlah_loker = 0
 no_loker = 0
 data_loker = []
@@ -63,6 +64,11 @@ while True:
     if type_input == 'search':
         hasil_pencarian = search_kartu(data_loker, command[1])
         print(hasil_pencarian)
+
+    if type_input not in ALL_COMMANDS:
+        print("Silakan pilih perintah yang ada")
+        commands = ', '.join(ALL_COMMANDS)
+        print(f"yaitu {commands}.")
 
     if type_input == 'exit':
         break
